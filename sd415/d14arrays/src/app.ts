@@ -6,11 +6,13 @@ console.log("in app.ts", "sum of [1,2,3] is: ", sum([1, 2, 3]));
  * @param {number} c is a number
  * @returns {number} largest of a, b, c
  */
-export function maxOfThree(aa: number, b: number, c: number): number {
-  if (aa > b && aa > c) {
-    return aa;
-  } else {
-    return 100;
+export function maxOfThree(a: number, b: number, c: number): number {
+  if (a > b && a > c) {
+    return a;
+  } else if (b>a && b>c) {
+    return b;
+  }else{
+    return c;
   }
 }
 
@@ -19,9 +21,13 @@ export function maxOfThree(aa: number, b: number, c: number): number {
  * @param {Array} arr of numbers
  * @returns {number} sum of arr numbers
  */
-export function sum(arr: number[]): number {
+export function sum(arr:number[]):number {
+  let added:number = 0
+    for(let i=0; i<arr.length; i++){
+        added +=arr[i] 
+    }
   //IMPLEMENT THIS
-  return 0;
+  return added;
 }
 
 /**
@@ -31,8 +37,11 @@ export function sum(arr: number[]): number {
  */
 export function multiply(arr: number[]): number {
   //IMPLEMENT THIS
-
-  return 0;
+  let product:number = 1
+for(let ele of arr){
+  product = product*ele
+}
+  return product;
 }
 /* findLongestWord */
 /**
@@ -42,9 +51,48 @@ export function multiply(arr: number[]): number {
  */
 export function findLongestWord(arr: string[]): number {
   //IMPLEMENT THIS
-
-  return 0;
+if(arr.length===0){
+  return 0
 }
+let longestWordlength = 0;
+for(let i=0; i<arr.length; i++){
+if(arr[i].length>longestWordlength){
+  longestWordlength = arr[i].length
+}
+}
+  return longestWordlength;
+}
+// 4. Reverse an Array
+// Arrays have a reverse method that changes the array by inverting the order in which its elements
+// appear. For this exercise, write two functions, reverseArray and reverseArrayInPlace. The first,
+// reverseArray, takes an array as argument and produces a new array that has the same elements in
+// the inverse order. The second, reverseArrayInPlace, does what the reverse method does: it
+// modifies the array given as argument by reversing its elements. This is a method that is very space
+// efficient. It does not create a new array or copy of the array. It returns the original array. Neither may
+// use the standard reverse method.
+// console.log(reverseArray(["A", "B", "C"]));
+// // → ["C", "B", "A"];
+// let arrayValue = [1, 2, 3, 4, 5];
+// reverseArrayInPlace(arrayValue);
+// console.log(arrayValue)
+
+
+// export function reverseArray(arr) {
+//   let newArr = [];
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     newArr.push(arr[i]);
+//   }
+//   return newArr;
+// }
+
+// export function revrseArrayInPlace(array) {
+//   for (let i = 0; i < Math.floor(array.length / 2); i++) {
+//     let temp = array[i];
+//     array[i] = array[array.length - 1 - i];
+//     array[array.length - 1 - i] = temp;
+//   }
+// }
+
 
 /* 6. Write a function that takes two integers as inputs and returns a 2-dimensional array containing sequential numbers across each row as follows:
 describe("generate array", function () {
@@ -61,6 +109,20 @@ describe("generate array", function () {
  */
 export function generateArray(rows: number, cols: number): number[][] {
   //IMPLEMENT THIS
+ 
+    let result = [];
+    let counter = 1;
 
-  return [[0]];
-}
+    for (let i = 0; i < rows; i++) {
+      let row = [];
+      for (let j = 0; j < cols; j++) {
+        row.push(counter++);
+      }
+      result.push(row);
+    }
+
+    return result;
+  }
+
+  
+
