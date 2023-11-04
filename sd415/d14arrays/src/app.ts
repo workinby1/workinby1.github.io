@@ -107,7 +107,7 @@ describe("generate array", function () {
  * @param {*} cols num cols
  * @returns {Array} 2d array with entries i + j
  */
-export function generateArray(rows: number, cols: number): number[][] {
+export function generateArray(rows: number, columns: number): number[][] {
   //IMPLEMENT THIS
  
     let result = [];
@@ -115,7 +115,7 @@ export function generateArray(rows: number, cols: number): number[][] {
 
     for (let i = 0; i < rows; i++) {
       let row = [];
-      for (let j = 0; j < cols; j++) {
+      for (let j = 0; j < columns; j++) {
         row.push(counter++);
       }
       result.push(row);
