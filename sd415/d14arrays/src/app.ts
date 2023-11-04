@@ -7,9 +7,9 @@ console.log("in app.ts", "sum of [1,2,3] is: ", sum([1, 2, 3]));
  * @returns {number} largest of a, b, c
  */
 export function maxOfThree(a: number, b: number, c: number): number {
-  if (a > b && a > c) {
+  if (a >=b && a >= c) {
     return a;
-  } else if (b>a && b>c) {
+  } else if (b>=a && b>=c) {
     return b;
   }else{
     return c;
@@ -77,21 +77,22 @@ if(arr[i].length>longestWordlength){
 // console.log(arrayValue)
 
 
-// export function reverseArray(arr) {
-//   let newArr = [];
-//   for (let i = arr.length - 1; i >= 0; i--) {
-//     newArr.push(arr[i]);
-//   }
-//   return newArr;
-// }
+export function reverseArray(arr: (number | string)[]) {
+  let newArr: (number | string)[] = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    newArr.push(arr[i]);
+  }
+  return newArr;
+}
 
-// export function revrseArrayInPlace(array) {
-//   for (let i = 0; i < Math.floor(array.length / 2); i++) {
-//     let temp = array[i];
-//     array[i] = array[array.length - 1 - i];
-//     array[array.length - 1 - i] = temp;
-//   }
-// }
+export function reverseArrayInPlace(array: any[]) {
+  for (let i = 0; i < Math.floor(array.length / 2); i++) {
+    let temp = array[i];
+    array[i] = array[array.length - 1 - i];
+    array[array.length - 1 - i] = temp;
+  }
+  return array;
+}
 
 
 /* 6. Write a function that takes two integers as inputs and returns a 2-dimensional array containing sequential numbers across each row as follows:
