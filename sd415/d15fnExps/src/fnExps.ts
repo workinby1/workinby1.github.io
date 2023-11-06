@@ -32,6 +32,7 @@ export function myMap( arr:number[], fun:(num:number)=>number):number[]{
 
 }
  export let inputArr = [1,2,3,4,5]
+ export let inputArr2 = [11,12,13]
 let doubleArr= myMap(inputArr, double)
 console.log(doubleArr)
 
