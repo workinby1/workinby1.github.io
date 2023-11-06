@@ -30,6 +30,8 @@ export function myMap( arr:number[], fun:(num:number)=>number):number[]{
  
     return arr.map(element=> fun(element));
 
+
+    
 }
  export let inputArr = [1,2,3,4,5]
  export let inputArr2 = [11,12,13]
