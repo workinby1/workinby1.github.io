@@ -10,19 +10,26 @@
 /**
  * @returns {number} 100 times the input
  */
-export function times100(){
+export function times100(number:number){
+  return number*100
  }
 
 
 /**
  * @returns {Array} creates a new array with function mapped to each element
  */
-export function myMap(  ){
-
-    return null;
+export function myMap( arr:number[], fun:(num:number)=>number):number[]{
+ 
+    return arr.map(element=> fun(element));
 
 }
+let inputArr = [1,2,3,4,5]
+let doubleArr= myMap(inputArr, double)
+console.log(doubleArr)
 
+
+let times100Arr = myMap(inputArr, times100);
+console.log(times100Arr)
 
 
 
