@@ -10,9 +10,9 @@
 /**
  * @returns {number} 100 times the input
  */
-export function times100(number:number){
-  return number*100
- }
+export function times100(number: number) {
+  return number * 100;
+}
 
 
 /**

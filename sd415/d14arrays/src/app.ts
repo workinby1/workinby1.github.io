@@ -1,7 +1,7 @@
 console.log("in app.ts", "sum of [1,2,3] is: ", sum([1, 2, 3]));
 /**
  *
- * @param {number} aa is a number
+ * @param {number} a is a number
  * @param {number} b is a number
  * @param {number} c is a number
  * @returns {number} largest of a, b, c
