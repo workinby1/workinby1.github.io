@@ -56,12 +56,12 @@ describe("times100", function () {
 
 describe("myMap function", function(){
     
-    it("it applys a custom function to each element of the array", function(){
+    it("it applys a custom function to each element of inputArr", function(){
         let tripleArrowArr = myMap(inputArr, triple)
         assert.deepEqual(tripleArrowArr, [3,6,9,12,15])
     })
 
-       it("it applys a custom function to each element of the array", function () {
+       it("it applys a custom function to each element of inputArr2", function () {
          let tripleArrowArr = myMap(inputArr2, triple);
          assert.deepEqual(tripleArrowArr, [33, 36,39]);
        });
