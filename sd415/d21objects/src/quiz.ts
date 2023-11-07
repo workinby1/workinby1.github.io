@@ -20,9 +20,8 @@ export function gradeStudent(studentAnswers: number[], correct: number[]): numbe
 
 
 
-//IMPLEMENT THIS
 export function gradeQuiz(students: StudentQuiz[], correctAnswers: number[]): number[] {
-//   const numCorrect = students.map((student) => gradeStudent(student.quizAnswers, correctAnswers));
+
 const numCorrect:number[]=[];
 for(const student of students){
     numCorrect.push(gradeStudent(student.quizAnswers, correctAnswers))
@@ -32,13 +31,10 @@ for(const student of students){
 
 
 
-//IMPLEMENT THIS
+
 export function gradeQuizLabeled(students: StudentQuiz[], correctAnswers: number[]): { studentId: number, numCorrect: number }[] {
 
-//   const labeledScores = students.map((student) => ({
-//     studentId: student.studentId,
-//     score: gradeStudent(student.quizAnswers, correctAnswers),
-//   }));
+
 const labeledScores:{studentId:number; numCorrect:number}[]=[];
 for(const student of students){
     labeledScores.push({studentId:student.studentId, numCorrect:gradeStudent(student.quizAnswers, correctAnswers)})

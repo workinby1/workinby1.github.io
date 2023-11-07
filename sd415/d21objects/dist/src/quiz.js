@@ -10,21 +10,14 @@ export function gradeStudent(studentAnswers, correct) {
     }
     return numCorrect;
 }
-//IMPLEMENT THIS
 export function gradeQuiz(students, correctAnswers) {
-    //   const numCorrect = students.map((student) => gradeStudent(student.quizAnswers, correctAnswers));
     const numCorrect = [];
     for (const student of students) {
         numCorrect.push(gradeStudent(student.quizAnswers, correctAnswers));
     }
     return numCorrect;
 }
-//IMPLEMENT THIS
 export function gradeQuizLabeled(students, correctAnswers) {
-    //   const labeledScores = students.map((student) => ({
-    //     studentId: student.studentId,
-    //     score: gradeStudent(student.quizAnswers, correctAnswers),
-    //   }));
     const labeledScores = [];
     for (const student of students) {
         labeledScores.push({ studentId: student.studentId, numCorrect: gradeStudent(student.quizAnswers, correctAnswers) });
