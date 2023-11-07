@@ -1,12 +1,33 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.gradeQuiz = exports.gradeStudent = void 0;
-function gradeStudent(studentAnswers, correct) {
-    //IMPLEMENT THIS
+export function gradeStudent(studentAnswers, correct) {
+    // //IMPLEMENT THIS
+    // const answers = stu.quizAnswers;
+    //loop through the parallel arrays and count the matches and return that;
+    let numCorrect = 0;
+    for (let i = 0; i < studentAnswers.length; i++) {
+        if (studentAnswers[i] === correct[i]) {
+            numCorrect = numCorrect + 1;
+        }
+    }
+    return numCorrect;
 }
-exports.gradeStudent = gradeStudent;
-function gradeQuiz(
 //IMPLEMENT THIS
-export ) { }
-exports.gradeQuiz = gradeQuiz;
+export function gradeQuiz(students, correctAnswers) {
+    //   const numCorrect = students.map((student) => gradeStudent(student.quizAnswers, correctAnswers));
+    const numCorrect = [];
+    for (const student of students) {
+        numCorrect.push(gradeStudent(student.quizAnswers, correctAnswers));
+    }
+    return numCorrect;
+}
 //IMPLEMENT THIS
+export function gradeQuizLabeled(students, correctAnswers) {
+    //   const labeledScores = students.map((student) => ({
+    //     studentId: student.studentId,
+    //     score: gradeStudent(student.quizAnswers, correctAnswers),
+    //   }));
+    const labeledScores = [];
+    for (const student of students) {
+        labeledScores.push({ studentId: student.studentId, numCorrect: gradeStudent(student.quizAnswers, correctAnswers) });
+    }
+    return labeledScores;
+}
