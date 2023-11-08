@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+// import { assert } from "chai";
 import { bank } from "../src/bank.js"; //import objects used in the Mocha tests
 describe("bank tests", function () {
     beforeEach(function () {
