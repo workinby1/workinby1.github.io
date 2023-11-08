@@ -28,7 +28,7 @@ for(const student of students){
 }
   return numCorrect;
 }
-
+// console.log("expect [3,2,3", gradeQuiz(correctAnswers), [])
 
 
 

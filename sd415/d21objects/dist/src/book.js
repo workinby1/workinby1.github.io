@@ -10,20 +10,22 @@ export let library = [
     { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
     { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
 ];
-// /**
-//  * Event handler to display library titles sorted alphabetically
-//  * @returns {undefined}
-//  */
-// export function showTitles(): void {
-//     /* this function is complete, no need to modify.  Inspect it as an example for the other functions. */
-//     /* put all titles into an array, then sort, then join with newline and insert in textarea innerHTML */
-//     const titles = findTitles(libraryBooks);
-//     /*need to sort and then join the titles still (e.g., someArray.join("\n")  */
-//     titles.sort();
-//     const titleString = titles.join("\n");
-//     let textArea: HTMLInputElement | null = document.getElementById("displayArea") as HTMLInputElement | null;
-//     if (textArea) { textArea.innerHTML = titleString; }
-// }
+/**
+ * Event handler to display library titles sorted alphabetically
+ * @returns {undefined}
+ */
+export function showTitles() {
+    /* this function is complete, no need to modify.  Inspect it as an example for the other functions. */
+    /* put all titles into an array, then sort, then join with newline and insert in textarea innerHTML */
+    const titles = findTitles(library);
+    /*need to sort and then join the tconitles still (e.g., someArray.join("\n")  */
+    titles.sort();
+    const titleString = titles.join("\n");
+    let textArea = document.getElementById("displayArea");
+    if (textArea) {
+        textArea.innerHTML = titleString;
+    }
+}
 //////////////////////////
 /**
  * @returns {book} new book object

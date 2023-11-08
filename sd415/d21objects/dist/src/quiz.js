@@ -17,6 +17,7 @@ export function gradeQuiz(students, correctAnswers) {
     }
     return numCorrect;
 }
+// console.log("expect [3,2,3", gradeQuiz(correctAnswers), [])
 export function gradeQuizLabeled(students, correctAnswers) {
     const labeledScores = [];
     for (const student of students) {

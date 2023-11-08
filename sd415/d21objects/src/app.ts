@@ -18,23 +18,23 @@ type student = {
   quizAnswers: number[];
 };
 
- export const student1 = {
+  const student1 = {
   studentId: 101,
   quizAnswers: [1, 1, 2, 4],
 };
- export const student2 = {
+  const student2 = {
   studentId: 101,
   quizAnswers: [2, 1, 2, 2],
 };
 
- export const student3 = {
+ const student3 = {
   studentId: 101,
   quizAnswers: [3, 1, 3, 4],
 };
 
 
-const classQuiz1 = [student1, student2, student3];
-classQuiz1;
+const quizArr = [student1, student2, student3];
+quizArr;
 console.log("expect 3: ", computeStudentScore(student1, [3, 1, 2, 4]));
 export function computeStudentScore(stu: student, quizKey: number[]): number {
   //get the student answers

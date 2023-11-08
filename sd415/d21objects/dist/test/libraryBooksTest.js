@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-// import { assert } from "chai";
+import { assert } from "chai";
 import { library, findTitles, findAuthors, findIDs, createBook } from "../src/book.js"; //import all of the app.js functions used in the Mocha tests
 /*
 Write a JavaScript program that will accept title, author, and libraryID values from an HTML page and create new book objects for each entry.
@@ -44,11 +44,17 @@ describe("library", function () {
     });
     it("create book and save to library", function () {
         //assumes createBook was called before this test--e.g., in prior it test
+        // Call createBook to add the new book to the library
+        createBook("My New Book", "Me Too", 1144);
         const TEST_LIB = [
             { title: "The Road Ahead", author: "Bill Gates", libraryID: 1254 },
             { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
-            { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 },
-            { title: "My New Book", author: "Me Too", libraryID: 1144 }
+            {
+                title: "Mockingjay: The Final Book of The Hunger Games",
+                author: "Suzanne Collins",
+                libraryID: 3245,
+            },
+            { title: "My New Book", author: "Me Too", libraryID: 1144 },
         ];
         assert.deepEqual(library, TEST_LIB);
     });
