@@ -10,17 +10,69 @@ d.  saveTransaction(id, amount) saves this transaction amount to the customerTra
 // {customerId: 1234, customerTransactions: [10, 50, -40] } would be one element of the array.
 // Add any necessary types to the above bank object.
 // */
-export const bank = {}; //define bank object as type Bank
-bank.transactionsDB = [
-    { customerId: 1, customerTransactions: [10, 50, -40] },
-    { customerId: 2, customerTransactions: [10, 10, -10] },
-    { customerId: 3, customerTransactions: [5, -5, 55] }
-];
-/* this is complete, no need to modify.
-Saves this amount to the customerTransactions array for customerId id. */
-bank.saveTransaction = function (customerId, amount) {
-    const customer = bank.transactionsDB.find(customer => customer.customerId === customerId);
-    if (customer) {
-        customer.customerTransactions.push(amount);
+export const bank = {
+    transactionsDB: [],
+    saveTransaction(customerId, amount) {
+        let found = false;
+        for (const customer of this.transactionsDB) {
+            if (customer.customerId === customerId) {
+                customer.customerTransactions.push(amount);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            this.transactionsDB.push({ customerId, customerTransactions: [amount] });
+        }
+    },
+    debit(customerId, amount) {
+        for (const customer of this.transactionsDB) {
+            if (customer.customerId === customerId) {
+                let balance = 0;
+                for (const transaction of customer.customerTransactions) {
+                    balance += transaction;
+                }
+                if (balance >= amount) {
+                    customer.customerTransactions.push(-amount);
+                }
+                break;
+            }
+        }
+    },
+    credit(customerId, amount) {
+        let found = false;
+        for (const customer of this.transactionsDB) {
+            if (customer.customerId === customerId) {
+                customer.customerTransactions.push(amount);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            this.transactionsDB.push({ customerId, customerTransactions: [amount] });
+        }
+    },
+    getBalance(customerId) {
+        for (const customer of this.transactionsDB) {
+            if (customer.customerId === customerId) {
+                let balance = 0;
+                for (const transaction of customer.customerTransactions) {
+                    balance += transaction;
+                }
+                return balance;
+            }
+        }
+        return 0;
+    },
+    bankBalance() {
+        let totalBalance = 0;
+        for (const customer of this.transactionsDB) {
+            let balance = 0;
+            for (const transaction of customer.customerTransactions) {
+                balance += transaction;
+            }
+            totalBalance += balance;
+        }
+        return totalBalance;
     }
 };
