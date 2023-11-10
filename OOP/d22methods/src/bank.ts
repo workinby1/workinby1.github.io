@@ -75,7 +75,7 @@ export const bank: Bank = {
     }
   },
 
-  getBalance(customerId: number): number {
+  getBalance (customerId: number): number {
     for (const customer of this.transactionsDB) {
       if (customer.customerId === customerId) {
         let balance = 0;
@@ -101,3 +101,53 @@ export const bank: Bank = {
 }
 };
 
+//////////////
+/* write a function, sumPoints, to get the total points across all players */
+
+const player1 = {name: "Bob", points: [1, 2, 1]};
+const player2 = {name: "Andre", points: [2, 0, 1]};
+const player3 = {name: "Max", points: [1, 1, 1]};
+const players = [player1, player2, player3];
+
+console.log("expect 10: ", sumPoints(players));
+
+
+///////////
+interface sumPoints {
+  players: number[];
+  points: number[];
+}
+
+// interface sumPoints {
+//   players:playerList[];
+//   saveTransaction: (customerId: number, amount: number) => void;
+//   sumOfPoints: (name, point) => number;
+// ;
+// }
+
+// const sumPoints(players:string, points:number):number{
+
+
+//   let totalPoint = 0;
+  
+//   let sum = 0
+//   for(const player of players){
+
+//    sum + =    points
+//   }
+// totalPoint +=sum;
+
+
+// return totalPoint;
+// }
+
+
+
+
+function(str:string){
+  let newStr:string ="";
+  for(let i=0; i<str.length; i++){
+    newStr = str.slice(i, (str.length-1) , "\n")
+console.log(newStr)
+  }
+}

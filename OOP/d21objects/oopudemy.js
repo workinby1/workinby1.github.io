@@ -9,6 +9,8 @@
 //interactions happen by interface-public interface(api)
 //class- blueprint to create objects
 
+import { expect } from "chai";
+
 // import { userInfo } from "os"
 
 // //
@@ -25,7 +27,6 @@
 //   cleaningProperties: ["bathroom", "lobby", "somthing"]
 // }
 // console.log(houseKeeper1.name);
-
 
 // //constructor functions - functionName should be capitalized and takes a number of inputs
 // function BellBoy(name, age, hasWorkPermit, languages){
@@ -54,10 +55,9 @@
 
 // user[key]= true;
 
-
 // let user = {
 //   name: "john",
-//   age: 30 
+//   age: 30
 // };
 // let key = prompt("what do you want to know about the user?", "name");
 // //access by variable
@@ -70,12 +70,11 @@
 // // we can use square brackets '[]' in an object literal,  when creating object===> that is called computed proerties .
 // let fruit = prompt("which fruit to buy?", "apple");
 // let bag = {
-//   [fruit]:5, // 
+//   [fruit]:5, //
 // }
 // alert(bag.apple); // 5 if fruit = "apple";
 // // same as
 // bag[fruit]= 5;
-
 
 // //more complex expressions inside square brackets:
 // let  fruit = 'apple';
@@ -95,7 +94,7 @@
 // let user = makeUser("John", 30);
 // alert(user.name); // John
 
-// //we can also write as: 
+// //we can also write as:
 // function makeUser(name, age){
 //   return{
 //     name, // same as name: name
@@ -151,7 +150,6 @@
 
 // alert( "test" in obj ); // true, the property does exist!
 
-
 // // the "for .. in" loop
 // To walk over all keys of an object, there exists a special form of the loop: for ..in. This is a completely different thing from the for(;;) construct that we studied before.
 // //
@@ -160,9 +158,7 @@
 //   //excutes the body for each key among object properties
 // }
 
-
 // // for instance , let's output all properties of user:
-
 
 // let user= {
 //   name: "john",
@@ -176,8 +172,6 @@
 //   //values for the keys
 //   alert(user[key]); // John, 30, true
 // }
-
-
 
 // Ordered like an object
 // Are objects ordered? In other words, if we loop over an object, do we get all properties in the same order they were added? Can we rely on this?
@@ -198,7 +192,7 @@
 //   alert(code); // 1, 41, 44, 49
 // }
 
-// sourceMapsEnabled, to fix issues with the integer order , we can "cheat" by makingvte codes non-SVGAnimatedInteger. Adding a plus "+" sign before each code is enough. 
+// sourceMapsEnabled, to fix issues with the integer order , we can "cheat" by makingvte codes non-SVGAnimatedInteger. Adding a plus "+" sign before each code is enough.
 
 // // like this:
 // let codes  = {
@@ -216,7 +210,6 @@
 
 // write the code , one line for each action:
 
-
 // Write the code, one line for each action:
 
 // // Create an empty object user.
@@ -233,7 +226,6 @@
 // // Remove the property name from the object.
 // delete user.name;
 
-
 // let salaries = {
 //   john: 100,
 //   Ann: 160,
@@ -244,7 +236,6 @@
 // sum = sum+ salaries[salary];
 // }
 // alert(sum)
-
 
 // Multiply numeric property values by 2
 // importance: 3
@@ -282,128 +273,121 @@
 //   }
 // }
 
-let myObj = {
- user1: {
-fname : 'john',
-lname : 'doe'
- },
- user2: {
-fname : 'john',
-lname : 'doe'
- },
- equals: function() {
- return this.user1 === this.user2;
- }
-}
-console.log((myObj.equals()));
-//ans false
+// let myObj = {
+//  user1: {
+// fname : 'john',
+// lname : 'doe'
+//  },
+//  user2: {
+// fname : 'john',
+// lname : 'doe'
+//  },
+//  equals: function() {
+//  return this.user1 === this.user2;
+//  }
+// }
+// console.log((myObj.equals()));
+// //ans false
 
+// // 3. [2] Fill in the blank for the output of the following code.
+// let anotherObject = {color: 'green'};
+// let color='red';
+// let myObject={
+// anotherObject :{color: 'blue'},
+// printColor:function(){
+// console.log((this.anotherObject.color));
+// }
+// }
+// myObject.printColor();// ans blue
 
-// 3. [2] Fill in the blank for the output of the following code.
-let anotherObject = {color: 'green'};
-let color='red';
-let myObject={
-anotherObject :{color: 'blue'},
-printColor:function(){
-console.log((this.anotherObject.color));
-}
-}
-myObject.printColor();// ans blue
+// // 4. [5] Write a JavaScript function "checkExam" that returns the grade number. The
+// // function receives two arguments, two arrays:
+// // - The first input array contains the correct answers to an exam
+// // - The second input array is "answers" array and contains student's answers.
+// // - Return the grade number for the array of answers, giving +4 for each correct
+// // answer,-1 for each incorrect answer
+// // -If the score < 0, return 0.
+// // Example:
+// // checkExam(["a", "a", "b", "b"], ["a", "c", "b", "d"]) →6
+// // checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]) →7
+// // checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"]) →16
+// // checkExam(["b", "c", "b", "a"], ["", "a", "a", "c"]) →0
 
-// 4. [5] Write a JavaScript function "checkExam" that returns the grade number. The
-// function receives two arguments, two arrays:
-// - The first input array contains the correct answers to an exam
-// - The second input array is "answers" array and contains student's answers.
-// - Return the grade number for the array of answers, giving +4 for each correct
-// answer,-1 for each incorrect answer
-// -If the score < 0, return 0.
-// Example:
-// checkExam(["a", "a", "b", "b"], ["a", "c", "b", "d"]) →6
-// checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]) →7
-// checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"]) →16
-// checkExam(["b", "c", "b", "a"], ["", "a", "a", "c"]) →0
+// //ans
+// function checkExam(correctAns , studentAns){
 
+//   let score = 0;
+//   for(i=0; i<correctAns.length; i++){
+//     if(correctAns===studentAns){
+//       score = score + 4;
+//     }else if(studentAns !=="" && studentAns !==correctAns){
+//       score = score-1;
+//     }
+//   }
+//   return Math.max(0, score)
+// }
 
+// // 5. [5] Write a function ‘thisProgramIsTheBest’ which takes 3 parameters. First two
+// // parameters are objects that have property ‘age and the last one is a function, “cbFun”. If
+// // the age properties are equal, then return “Same Age!”, otherwise call the cbFun function
+// // with the input parameters as arguments, and then return “Different Ages”.
 
-//ans
-function checkExam(correctAns , studentAns){
+// // 6. [6] a. Write a function, positive, that filter will use to return an array containing only
+// // positive numbers. For example, in the code below returnVal should be [10, 20, 30].
+// // Also, fill in the blank for what the second log will show as the value of the array:
+// // let array = [-10, 10, 20, -20, -10, 30]
+// // let returnVal= array.filter(positive);
+// // console.log(returnVal); __________________
+// // console.log(array);
+// function positive(array){
 
-  let score = 0;
-  for(i=0; i<correctAns.length; i++){
-    if(correctAns===studentAns){
-      score = score + 4;
-    }else if(studentAns !=="" && studentAns !==correctAns){
-      score = score-1;
-    }
-  }
-  return Math.max(0, score)
-}
-
-
-// 5. [5] Write a function ‘thisProgramIsTheBest’ which takes 3 parameters. First two
-// parameters are objects that have property ‘age and the last one is a function, “cbFun”. If
-// the age properties are equal, then return “Same Age!”, otherwise call the cbFun function
-// with the input parameters as arguments, and then return “Different Ages”.
-
-
-// 6. [6] a. Write a function, positive, that filter will use to return an array containing only
-// positive numbers. For example, in the code below returnVal should be [10, 20, 30].
-// Also, fill in the blank for what the second log will show as the value of the array:
-// let array = [-10, 10, 20, -20, -10, 30]
-// let returnVal= array.filter(positive);
-// console.log(returnVal); __________________
-// console.log(array);
-function positive(array){
-
-  let posNum = [];
-  for(let arr of array){
-    if(arr>=0){
-      posNum.push(arr);
-    }
-  }
-  return posNum;
-}
-console.log(positive([-10, 10, 20, -20, -10, 30]));
-console.log([-10, 10, 20, -20, -10, 30]);
-
-//negatives
-function negative(array) {
-  let negNum = [];
-  for (let arr of array) {
-    if (arr < 0) {
-      negNum.push(arr);
-    }
-  }
-  return negNum;
-}
-console.log(negative([-10, 10, 20, -20, -10, 30]));
+//   let posNum = [];
+//   for(let arr of array){
+//     if(arr>=0){
+//       posNum.push(arr);
+//     }
+//   }
+//   return posNum;
+// }
+// console.log(positive([-10, 10, 20, -20, -10, 30]));
 // console.log([-10, 10, 20, -20, -10, 30]);
 
+// //negatives
+// function negative(array) {
+//   let negNum = [];
+//   for (let arr of array) {
+//     if (arr < 0) {
+//       negNum.push(arr);
+//     }
+//   }
+//   return negNum;
+// }
+// console.log(negative([-10, 10, 20, -20, -10, 30]));
+// // console.log([-10, 10, 20, -20, -10, 30]);
 
-
-// 7. [4] Fill in the blanks below ?
-function haveFun(){
-let fun ={
-myFuns : []
-}
-let i =0;
-while(i<3){
-let myFunc = function(){
-console.log('Fun : ' + i);
-}
-fun.myFuns.push(myFunc);
-i++;
-}
-return fun;
-}
-let anotherFun = haveFun;
-let result = anotherFun();
-let output1 = result.myFuns[1];
-let output2 = result.myFuns[0]();
-console.log("ans1: " + anotherFun);//function haveFun(){...}
-console.log("ans2: " + result);//[object object]
-console.log("ans3: " +  output1 ); // function(){console.log("Fin: " + i)}
-console.log("ans4: " + output2); //undefined
+// // 7. [4] Fill in the blanks below ?
+// function haveFun(){
+// let fun ={
+// myFuns : []
+// }
+// let i =0;
+// while(i<3){
+// let myFunc = function(){
+// console.log('Fun : ' + i);
+// }
+// fun.myFuns.push(myFunc);
+// i++;
+// }
+// return fun;
+// }
+// let anotherFun = haveFun;
+// let result = anotherFun();
+// let output1 = result.myFuns[1];
+// let output2 = result.myFuns[0]();
+// console.log("ans1: " + anotherFun);//function haveFun(){...}
+// console.log("ans2: " + result);//[object object]
+// console.log("ans3: " +  output1 ); // function(){console.log("Fin: " + i)}
+// console.log("ans4: " + output2); //undefined
 
 // // 8. [2] Fill in the blank
 // function fn(a,b){
@@ -417,44 +401,135 @@ console.log("ans4: " + output2); //undefined
 //  console.log('Hello');
 // }
 
-// What will the alert show? ______________________ 
-
+// What will the alert show? ______________________
 
 // 9. [5] Write an iterative function, sumOfSquares(n) that will compute the sum of squares of all
 // integers from 1 to n. E.g., sumOfSquares(3) will compute 1 + 4 + 9 and return 14.
 
-function sumOfSquares(num){
+// function sumOfSquares(num){
 
-  let sqr = 0;
-  let sum  = 0 ;
-  for(let i=1; i<=num; i++){
-    sqr = i**2;
-    sum = sum+sqr
+//   let sqr = 0;
+//   let sum  = 0 ;
+//   for(let i=1; i<=num; i++){
+//     sqr = i**2;
+//     sum = sum+sqr
+//   }
+//   return sum;
+// }
+// console.log(sumOfSquares(4))
+
+// //
+// function listNum(num){
+// let list = []
+// for(i=1; i<=num;i++){
+// list.push(listNum(i))
+// }
+// return list
+// }
+
+// function sqrNum(arr) {
+//   let sqr = [];
+//   for (i = 1; i <= arr; i++) {
+//     sqr.push(sqrNum[i**2]);
+// }return sqr
+// }
+
+// function sum (nums){
+//   let sum = 0;
+//   for(i=0; i<nums.length;i++){
+//     sum+=nums[i]
+//   }
+//   return sum
+// }
+
+// /////////
+// /* write a function, sumPoints, to get the total points across all players */
+
+// const player1 = {name: "Bob", points: [1, 2, 1]};
+// const player2 = {name: "Andre", points: [2, 0, 1]};
+// const player3 = {name: "Max", points: [1, 1, 1]};
+// const players = [player1, player2, player3];
+
+function sumPoints(players) {
+
+  let totalPoints = 0;
+  for (i = 0; i < players.length; i++) {
+    let subTotal = 0;
+
+    for (let j = 0; j < players[i].ponts; j++) {
+      subTotal += players[i].points;
+    }
+    totalPoints += subTotal;
   }
-  return sum;
+  return totalPoints;
 }
-console.log(sumOfSquares(4))
 
+function sumPoints(players) {
+  let totalPoints = 0;
+
+  // Loop through each player
+  for (let i = 0; i < players.length; i++) {
+    const player = players[i];
+
+    for (let j = 0; j < player.points.length; j++) {
+      totalPoints += player.points[j];
+    }
+  }
+
+  return totalPoints;
+}
+
+///
 //
-function listNum(num){
-let list = []
-for(i=1; i<=num;i++){
-list.push(listNum(i))
-}
-return list
-}
+// console.log("expect 10: ", sumPoints(players));
 
-function sqrNum(arr) {
-  let sqr = [];
-  for (i = 1; i <= arr; i++) {
-    sqr.push(sqrNum[i**2]);
-}return sqr
-}
+/* write a function findProps to return an array of all the properties in any given object */
+// console.log("expect [a, b, c]: ", findProps({a: 1, b: 2, c: 3}));
 
-function sum (nums){
-  let sum = 0;
-  for(i=0; i<nums.length;i++){
-    sum+=nums[i]
+// function findProps(obj) {
+//   return Object.keys(obj);
+// }
+
+function sliceStr(str) {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    newStr = str.slice(i, str.length - 1);
+    console.log(newStr.trim());
   }
-  return sum
 }
+console
+  .log(sliceStr("Slice is cool!"))
+
+  [
+    ////
+    (1, 5, 16, 3, 108)
+  ].forEach(isEven);
+
+// use slice and splice to implement the replaceInterior function
+const arr = [1, 2, 3, 4, 5];
+const result = replaceInterior(arr, 999);
+console.log("expect [1, 999, 5]: ", result);
+const result2 = replaceInterior(arr, 1234);
+console.log("expect [1, 1234, 5]: ", result2);
+console.log("expect [1, 2, 3, 4, 5]: ", arr);
+
+function replaceInterior(arr: number, num: number): number[] {
+  const newArr = [...arr];
+  // constneArr = arr.slice()
+  newArr.splice(1, arr.length - 2, num);
+  return newArr;
+}
+
+///////Exercise
+
+const numbers = [1, 5, 18, 2, 77, 108];
+// ➢ use filter, find, and findIndex to find
+// ➢ all the even numbers
+// ➢ the first even number
+// ➢ the index of the first even number
+
+console.log("expect[18,2,108]:", numbers.find(num % 2 === 0));
+
+console.log("expect 18:", numbers.filter(num % 2 === 0));
+
+console.log("expect 2:", numbers.indexOf(num % 2 === 0));
