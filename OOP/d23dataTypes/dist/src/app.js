@@ -23,7 +23,7 @@ export function checkSpam(str) {
     const spamKeyWords = ["buy ViAgRA now", "free xxxxx"];
     const lowerCaseStr = str.toLowerCase();
     for (let i = 0; i < spamKeyWords.length; i++) {
-        if (lowerCaseStr.includes(spamKeyWords[i])) {
+        if (lowerCaseStr.includes(spamKeyWords[i].toLowerCase())) {
             return true;
         }
     }
