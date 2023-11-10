@@ -27,7 +27,7 @@ export function checkSpam(str: string): boolean {
   const lowerCaseStr = str.toLowerCase();
 
   for (let i = 0; i < spamKeyWords.length; i++) {
-    if (lowerCaseStr.includes(spamKeyWords[i])) {
+    if (lowerCaseStr.includes(spamKeyWords[i].toLowerCase())) {
       return true;
     }
   }
