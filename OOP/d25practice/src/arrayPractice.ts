@@ -16,7 +16,7 @@ return arr.map(  person =>({name: person.name, age:person.age*2}))
 export function filterOver10(
   arr: { name: string; age: number }[]
 ): { name: string; age: number }[] {
-  return arr.filter(person=>({name:person.name, age:person.age> 10}));
+  return arr.filter(person=>person.age > 10);
 }
 
 export function filterEvenNum(arr: number[]): number[] {

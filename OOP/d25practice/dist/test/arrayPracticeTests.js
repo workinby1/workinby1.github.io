@@ -27,21 +27,36 @@ describe("filter practice", function () {
         peopleArray = [{ name: "Sam", age: 15 }, { name: "William", age: 6 }, { name: "Lucy", age: 13 }, { name: "Barney", age: 80 }];
     });
     it("filter all even numbers", function () {
-        assert.deepEqual(filterEvenNum(numArray), [0, -20, 300, 2]);
+        assert.sameDeepMembers(filterEvenNum(numArray), [0, -20, 300, 2]);
         assert.deepEqual(numArray, [5, 0, 7, 77, -20, 300, 51, 2]); //test for pure function
     });
     it("filter all age > 10", function () {
-        assert.deepEqual(filterOver10(peopleArray), [{ name: "Sam", age: 15 }, { name: "Lucy", age: 13 }, { name: "Barney", age: 80 }]);
-        assert.deepEqual(peopleArray, [{ name: "Sam", age: 15 }, { name: "William", age: 6 }, { name: "Lucy", age: 13 }, { name: "Barney", age: 80 }]);
+        assert.sameDeepMembers(filterOver10(peopleArray), [
+            { name: "Sam", age: 15 },
+            { name: "Lucy", age: 13 },
+            { name: "Barney", age: 80 },
+        ]);
+        // assert.deepEqual(
+        //   peopleArray.filter(person=>person.age),
+        //   [
+        //     { name: "Sam", age: 15 },
+        //     // { name: "William", age: 6 },
+        //     { name: "Lucy", age: 13 },
+        //     { name: "Barney", age: 80 },
+        //   ]
+        // );
     });
     it("find even", function () {
-        assert.strictEqual(findEvenNum(numArray), [0, -20, 300, 2]);
-        assert.strictEqual(findEvenNum([1, 3, 801]), undefined);
+        assert.sameDeepMembers(findEvenNum(numArray), [0, -20, 300, 2]);
+        assert.deepEqual(findEvenNum([1, 3, 801]), []);
     });
     it("find even age ", function () {
-        assert.deepEqual(findEvenAge(peopleArray), [{ name: "William", age: 6 }]);
+        assert.sameDeepMembers(findEvenAge(peopleArray), [
+            { name: "William", age: 6 },
+            { name: "Barney", age: 80 },
+        ]);
         const peopleOddAge = [{ name: "Sam", age: 15 }, { name: "Lucy", age: 13 }, { name: "Barney", age: 81 }];
-        assert.deepEqual(findEvenAge(peopleOddAge), undefined);
+        assert.sameDeepMembers(findEvenAge(peopleOddAge), []);
     });
     it("includes even", function () {
         assert.strictEqual(numArray.includes(77), true);

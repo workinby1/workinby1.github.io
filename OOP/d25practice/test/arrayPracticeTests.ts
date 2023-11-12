@@ -53,16 +53,20 @@ describe("filter practice", function () {
 
     it("filter all age > 10", function () {
         assert.sameDeepMembers(filterOver10(peopleArray),
-            [{ name: "Sam", age: 15 }, { name: "Lucy", age: 13 }, { name: "Barney", age: 80  }]);
-        assert.deepEqual(
-          peopleArray.filter(person=>person.age),
-          [
-            { name: "Sam", age: 15 },
-            // { name: "William", age: 6 },
-            { name: "Lucy", age: 13 },
-            { name: "Barney", age: 80 },
-          ]
-        );
+        [
+              { name: "Sam", age: 15 },
+              { name: "Lucy", age: 13 },
+              { name: "Barney", age: 80 },
+            ]);
+        // assert.deepEqual(
+        //   peopleArray.filter(person=>person.age),
+        //   [
+        //     { name: "Sam", age: 15 },
+        //     // { name: "William", age: 6 },
+        //     { name: "Lucy", age: 13 },
+        //     { name: "Barney", age: 80 },
+        //   ]
+        // );
     });
 
     it("find even", function () {
@@ -70,11 +74,12 @@ describe("filter practice", function () {
         assert.deepEqual(findEvenNum([1, 3, 801]),[]);
     });
     it("find even age ", function () {
-        assert.sameDeepMembers(findEvenAge(peopleArray), [{ name: "William", age: 6 }]);
-        const peopleOddAge = [{ name: "Sam", age: 15 }, { name: "Lucy", age: 13 }, { name: "Barney", age: 81  }];
-        assert.deepEqual(findEvenAge(peopleOddAge), [
+        assert.sameDeepMembers(findEvenAge(peopleArray), [
           { name: "William", age: 6 },
+          { name: "Barney", age: 80 },
         ]);
+        const peopleOddAge = [{ name: "Sam", age: 15 }, { name: "Lucy", age: 13 }, { name: "Barney", age: 81  }];
+        assert.sameDeepMembers(findEvenAge(peopleOddAge), []);
     });
 
     it("includes even", function () {
