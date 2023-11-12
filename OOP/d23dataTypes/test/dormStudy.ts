@@ -3,6 +3,8 @@
 //arrays and functions are objects
 //null is not object, though it considered as object in js.
 
+import { CLIENT_RENEG_WINDOW } from "tls";
+
 
 // let intiger = parseInt("42px")
 // console.log(intiger)
@@ -146,46 +148,46 @@ console.log(squaredNumbers);
 // Example 5: Modifying an object property for each element in an array of objects.
 // javascript
 
-let people = [
-  { name: 'Alice', age: 30 },
-  { name: 'Bob', age: 25 },
-  { name: 'Charlie', age: 35 }
-];
+// let people = [
+//   { name: 'Alice', age: 30 },
+//   { name: 'Bob', age: 25 },
+//   { name: 'Charlie', age: 35 }
+// ];
 
-people.forEach(function(person) {
-  person.age += 1;
-});
+// people.forEach(function(person) {
+//   person.age += 1;
+// });
 
-console.log(people);
-// Output: [{ name: 'Alice', age: 31 }, { name: 'Bob', age: 26 }, { name: 'Charlie', age: 36 }]
-// These examples demonstrate different use cases for the forEach method in JavaScript. Depending on your specific scenario, you can adapt and modify the callback function to suit your needs.
-
-
-let arr1 = [1,5,16,3,108]
-let newArr:any = [];
-arr1.forEach(function(item){
-  if(item%2===0){
-newArr.push(item)
-  }
-  return newArr;
-})
-
-console.log(newArr)
-///
+// console.log(people);
+// // Output: [{ name: 'Alice', age: 31 }, { name: 'Bob', age: 26 }, { name: 'Charlie', age: 36 }]
+// // These examples demonstrate different use cases for the forEach method in JavaScript. Depending on your specific scenario, you can adapt and modify the callback function to suit your needs.
 
 
+// let arr1 = [1,5,16,3,108]
+// let newArr:any = [];
+// arr1.forEach(function(item){
+//   if(item%2===0){
+// newArr.push(item)
+//   }
+//   return newArr;
+// })
 
-const arr = [1, 2, 3, 4, 5];
-const result = replaceInterior(arr, 999);
-console.log("expect [1, 999, 5]: ", result);
-const result2 = replaceInterior(arr, 1234);
-console.log("expect [1, 1234, 5]: ", result2);
-console.log("expect [1, 2, 3, 4, 5]: ", arr);
+// console.log(newArr)
+// ///
 
-function replaceInterior(arr:number[], num:number):number[]{
-   arr.splice(1, arr.length - 2, num);
-  return arr;
-}console.log(replaceInterior(arr, 999));
+
+
+// const arr = [1, 2, 3, 4, 5];
+// const result = replaceInterior(arr, 999);
+// console.log("expect [1, 999, 5]: ", result);
+// const result2 = replaceInterior(arr, 1234);
+// console.log("expect [1, 1234, 5]: ", result2);
+// console.log("expect [1, 2, 3, 4, 5]: ", arr);
+
+// function replaceInterior(arr:number[], num:number):number[]{
+//    arr.splice(1, arr.length - 2, num);
+//   return arr;
+// }console.log(replaceInterior(arr, 999));
 
 
 
@@ -209,31 +211,245 @@ function replaceInterior(arr:number[], num:number):number[]{
 // ’12.3’ are ok, ‘123abc’ is not ok. Write a Mocha test that tests against the array [‘abc’,
 // ‘123a’, ‘ab123’, ‘123.3’, ‘123’]
 
-function readNumber(arrOfStr:string[]){
-  
-  for(let i = 0; i<arrOfStr.length; i++){
-  if(!isNaN(Number(arrOfStr[i]))){
-    return arrOfStr[i]
-  }
-}
-return null
-}
-console.log(readNumber(["123ab", "123.99", "12.3"]))
-// • An occasional infinite loop
-// • A random number from min to max (write a Mocha test with several different tests)
-// Section: Strings (use the Mocha tests in dataTypeTests.js to test your implementations in VSCode)
-// • Uppercase the first character
-// • Check for spam
-// • Truncate the text
-// • Extract the money
-// Section : Arrays
-// • Is array copied?
-// • Array operations
-// • Calling in an array context
-// o This one is a fine point of JavaScript. Do not worry too much about it.
-// • Sum input numbers
-// o If the user clicks "cancel" prompt returns null
-// • A maximal subarray (use the Mocha test file dataTypeTests.js in VSCode for this exercise and the
-// camelize exercise in the Array methods section)
-// Section: Array methods
-// • Translate border-left-width to borderLeftWidth
+// exAM PRACTICE
+
+
+// 11/9/23
+
+// Practice questions for exam 2.  (from previous exam)
+// These questions are in JavaScript, but of course the current exam will be TypeScipt.
+
+// // What will appear in console when this code runs? Enter BLANK if nothing is there.
+// function foo(bat) [
+//   if (bat) [
+//     bat = console.log("bat");  
+//     return bat;
+//   ]    
+//   const long = console.log("short");  
+//   return long;]
+// console.log(foo());  /////short and undefined
+
+// // 2. What will appear in console when this code runs? Enter BLANK if nothing is there.
+// // (Assume curly brace for where you see [ and ] -- Sakai issue )
+// function foo(bat) {
+//   if (bat) {
+//     bat = console.log("bat");  
+//     }
+//   const long = console.log("short");  
+//   return long;
+// console.log(foo(""));  /////short and undefined
+
+// // 3. What will appear in console when this code runs? Enter BLANK if nothing is there.
+// // (Assume curly brace for where you see [ and ] -- Sakai issue )
+// function foo(bat) {
+//   if (bat) {
+//     bat = console.log("bat");  
+//     return bat;
+// }
+//   const long = console.log("short");  
+//   return long;}
+// console.log(foo("false"));  //bat and undefined
+
+
+// const x = 123;
+// const y = 123;
+// const a = [1, 2, 3];
+// const b = [1, 2, 3]; 
+// // explain why a === b is false and x === y is true;
+
+// const c=[4,5,6]
+// const d = c;
+// d===c //is it true?yes, true same reference value
+
+
+
+//5. What is the object before the dot rule?  As briefly and succinctly as possible explain how it relates to usage of the keyword 'this' in object methods.
+
+//The "object before the dot" rule refers to the object on which a method is called. In JavaScript, when a method is invoked using the dot notation (e.g., object.method()), the object before the dot becomes the value of the this keyword inside the method. The this keyword allows access to the object's properties and methods within the method. It dynamically refers to the object that invokes the method, providing a way to access and manipulate its data.
+
+
+// function goStop(flag, go, stop){
+//     //implement this function
+//     if (flag) {return go();} else {return stop();}
+// }
+
+// let gosto = goStop(100, ()=> "go!", () => "stop!"); //gosto === "go!"
+//  gosto =  goStop(0, ()=> "go!", () => "stop!"); //gosto === "stop!"
+//  gosto = goStop(-100, ()=> "go!", () => "stop!"); //gosto === "go!"
+//  gosto =  goStop(true, ()=> "go!", () => "stop!"); //gosto === "go!"
+//  gosto = goStop(false, ()=> "go!", () => "stop!"); //gosto === "stop!"
+ 
+
+
+// 4a. [3] What will appear in console when this code runs? (Read carefully and remember what console.log(“hi”) returns.)
+// function foo(bat) {
+//   if (bat) {
+//     bat = console.log("bat");  ________________________
+//     return bat;
+//   }    
+//   const long = console.log("short");  ________________________
+//   return long;}
+// console.log(foo());  ________________________
+
+// b.	[3] What will appear in console when this code runs?
+// function foo(bat) {
+//   if (bat) {
+//     bat = console.log("bat");  ________________________
+//     return bat;
+//   }
+//   const long = console.log("short");  ________________________
+//   return long;}
+// console.log(foo(""));  ________________________
+
+// c.	[3] What will appear in console when this code runs?
+// function foo(bat) {
+//   if (bat) {
+//     bat = console.log("bat");  ________________________
+//     return bat;
+//   }
+//   const long = console.log("short");  ________________________
+//   return long;}
+// console.log(foo("false"));  ________________________
+
+/////////////////
+
+
+// let nums = "4123".split("");
+// nums.sort(a,b)=> b-a
+// console.log(nums.join(""))
+
+// let user1 =[{x:1}, {y:6}, {z:8}]
+// let user2 = {x:1, y:6, z:8}
+// function foo(){
+//   const arr = [];
+// for(const element in user2){ arr.push(element);}
+// return arr}
+
+// }
+// console.log(foo())
+
+
+// use strict;
+// function birthday(){
+//   this.age =this.age + 1;
+//   console.log(this.age)
+// }
+// const person = {name:"Bob", age:10, birthday:birthday}
+/////////////
+
+// 11.  Assume that you are writing a program for an application like GoFundMe.  The owners want code that will give users a picture of their donations day by day.  Assume you have the following data structure for daily donations
+// */
+// const donation1 = { funderId: 1, amount: 100 };
+// const donation2 = { funderId: 2, amount: 10 };
+// const donation3 = { funderId: 3, amount: 1 };
+// const donation4 = { funderId: 4, amount: 5 };
+// const donation5 = { funderId: 5, amount: 15 };
+// const day1 = {    donations: [donation1, donation2],    date: "01/10/2022",};
+// const day2 = {    donations: [donation3, donation4, donation5],    date: "01/11/2022",};
+// const dailyRecord = [day1, day2];
+
+
+
+// 11a.  [3] Use a for loop in a function, dailyTotal, to find total amount donated for a given day.
+// console.log("expect 21: ", dailyTotal(day2.donations));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 11b. [3] Use reduce in a function, dailyTotalReduce, to find total amount donated for a given day.
+// console.log("expect 110: ", dailyTotalReduce(day1.donations));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 11c. [ 4] Write a function totalDonations using a for loop that will find the total donations across all days in the dailyRecord array.  HINT:  Make use of dailyTotal.
+// console.log("expect 131: ", totalDonations(dailyRecord));
+
+
+
+// function totalDonations(dailyRecord:any){
+//   let total = 0;
+//   for(let i=0; i<dailyRecord.length; i++){
+//     let dailyTotal = 0;
+//     for(let j=0; j<dailyRecord[i].donations.length; j++){
+//       dailyTotal +=dailyRecord[i].donations[j].amount
+//     }
+//    total += dailyTotal
+//   }
+// return total
+// }
+// console.log(totalDonations(dailyRecord))
+
+// const dailyRecord = [day1, day2];
+    
+
+//  
+// 11d. [3] Write a function for the same specs as 11c but use reduce.  HINT:  Make use of dailyTotal.
+// console.log("expect 131 for: ", totalDonationsReduce(dailyRecord));
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 11e. [5] Write a function, findBigDonations, that will return an array with all the dates that daily donations exceeded the maximum amount goal.  Each entry in the array should be an object that contains the date, and the total amount donated.  The second parameter for your function should be the maximum amount goal.  For the example below, the result should return the date and amounts for every donation that had an amount > 10.  In this example those are donations 1 and 2.
+
+// console.log(`expect [{day: "01/10/2022", amount: 100 },
+//       {day: "01/11/2022", amount: 15 } :  `, findBigDonations(dailyRecord, 10) );
+
+
+
+
+
+
+
+//  
+// 11f.  [5] Write a function, averageDonation, that will find the average donation for a day.
+// console.log("expect 55: ", averageDonation(day1));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////
+// inClass

@@ -449,14 +449,17 @@ import { expect } from "chai";
 // const player2 = {name: "Andre", points: [2, 0, 1]};
 // const player3 = {name: "Max", points: [1, 1, 1]};
 // const players = [player1, player2, player3];
-
-function sumPoints(players) {
+type player {
+  name: String;
+  pionts:number[];
+}
+function sumPoints(players:player[]):number {
 
   let totalPoints = 0;
   for (i = 0; i < players.length; i++) {
     let subTotal = 0;
 
-    for (let j = 0; j < players[i].ponts; j++) {
+    for (let j = 0; j < players[i].points; j++) {
       subTotal += players[i].points;
     }
     totalPoints += subTotal;
@@ -468,18 +471,30 @@ function sumPoints(players) {
   let totalPoints = 0;
 
   // Loop through each player
-  for (let i = 0; i < players.length; i++) {
-    const player = players[i];
+type player{
+  name: String;
+  points:number[]
+}
+function sumPoints2(players:player[]):number{
 
-    for (let j = 0; j < player.points.length; j++) {
-      totalPoints += player.points[j];
+
+  let totalPoints: Number=0;
+  for(let player of players){
+
+    let subTotlal = 0;
+    for(let points of player.points ){
+      subTotlal +=player.points
     }
+    totalPoints += subTotlal
   }
-
   return totalPoints;
 }
+console.log(sumPoints2(players))
 
-///
+
+function findProps(obj:any):string[]{
+  return object.keys(obj)
+}
 //
 // console.log("expect 10: ", sumPoints(players));
 
@@ -528,8 +543,22 @@ const numbers = [1, 5, 18, 2, 77, 108];
 // ➢ the first even number
 // ➢ the index of the first even number
 
-console.log("expect[18,2,108]:", numbers.find(num % 2 === 0));
+// console.log("expect[18,2,108]:", numbers.find(num % 2 === 0));
 
-console.log("expect 18:", numbers.filter(num % 2 === 0));
+// console.log("expect 18:", numbers.filter(num % 2 === 0));
 
-console.log("expect 2:", numbers.indexOf(num % 2 === 0));
+// console.log("expect 2:", numbers.indexOf(num % 2 === 0));
+
+
+//////////////////////////
+// ➢ Write a function,
+// myCallback( func: (num: number)=>number , arg: number): void.
+// myCallback will call func with the given arg and then log the return
+// value to the console.
+// ➢Test myCallback by calling it with a function that takes a number and returns the cube of the
+// argument. First write it as "cube" a normal named function declaration, then as an anonymous
+// function expression.
+// ➢Also test with a function that returns the cube if the arg is an even number, else the square.
+// ➢ myCallback(cube, 10) → 100
+// ➢ myCallback(cubeSquare, 10) → 100
+// ➢ myCallback(cubeSquare, 9) → 81 

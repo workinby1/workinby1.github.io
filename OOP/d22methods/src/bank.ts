@@ -12,15 +12,17 @@ d.  saveTransaction(id, amount) saves this transaction amount to the customerTra
 // Add any necessary types to the above bank object.
 // */
 
+import { type } from "os";
+
 
 
 ///////////
-interface CustomerRecord {
+type CustomerRecord= {
   customerId: number;
   customerTransactions: number[];
 }
 
-interface Bank {
+type Bank ={
   transactionsDB: CustomerRecord[];
   saveTransaction: (customerId: number, amount: number) => void;
   debit: (customerId: number, amount: number) => void;
