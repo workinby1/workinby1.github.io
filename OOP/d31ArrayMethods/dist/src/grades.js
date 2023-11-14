@@ -1,7 +1,10 @@
+// import { error } from "console";
 export const quiz = {};
-quiz.students = [{ sid: 10, answers: [{ qid: 2, ans: "b" }, { qid: 3, ans: "a" }, { qid: 1, ans: "b" }] },
+quiz.students = [
+    { sid: 10, answers: [{ qid: 2, ans: "b" }, { qid: 3, ans: "a" }, { qid: 1, ans: "b" }] },
     { sid: 11, answers: [{ qid: 1, ans: "e" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }] },
-    { sid: 12, answers: [{ qid: 3, ans: "b" }, { qid: 2, ans: "a" }, { qid: 1, ans: "d" }] }];
+    { sid: 12, answers: [{ qid: 3, ans: "b" }, { qid: 2, ans: "a" }, { qid: 1, ans: "d" }] }
+];
 quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
 /**
  *
@@ -9,9 +12,10 @@ quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
  * @param {Object} ans2 is an answer object
  * @returns {number} difference of the identifiers
  */
-function answerComparator(ans1, ans2) {
-    //IMPLEMENT THIS
-}
+// function answerComparator(ans1, ans2)
+quiz.answerComparator = function (ans1, ans2) {
+    return ans1.qid - ans2.qid;
+};
 /**
  *
  * @param {*} sid student id
@@ -21,7 +25,16 @@ function answerComparator(ans1, ans2) {
  * compare them against key and add up matches
  */
 quiz.scoreStudent = function (sid) {
-    //IMPLEMENT THIS
+    const student = quiz.students.find(student => student.sid === sid);
+    if (!student) {
+        throw Error(`student with sid ${sid} not found`);
+    }
+    //sort student answers ans key based on question identifiers
+    const sortedStudentAnswers = student.answers.sort(quiz.answerComparator);
+    const sortedKey = quiz.key.sort(quiz.answerComparator);
+    //count the number of correct answers
+    const correctAnswers = sortedStudentAnswers.filter((ans, index) => quiz.answerComparator(ans, sortedKey[index]) === 0);
+    return correctAnswers.length;
 };
 /**
  * @returns {number} average score of all students
@@ -29,4 +42,7 @@ quiz.scoreStudent = function (sid) {
  */
 quiz.getAverage = function () {
     //IMPLEMENT THIS
+    const totalScore = quiz.students.reduce((sum, student) => sum + quiz.scoreStudent(student.sid), 0);
+    const averageScore = totalScore / quiz.students.length;
+    return averageScore;
 };

@@ -30,21 +30,24 @@ export  function firstLast(names:string[]){
 //q5
   //  Use slice and splice to write TypeScript code for the replaceEnds function.  replaceEnds should be a pure function.
 export  function replaceEnds(arr:number[], startValue:number[], endValue:number[]):number[]{
-
-    const copyArr = arr.slice();
-    for(let i= 0; i<startValue.length; i++){
-      copyArr[i]= startValue[i]
-    }
-
-    for (let i = 0; i < endValue.length; i++) {
-      copyArr[copyArr.length-1-i] = endValue[i];
-    }
-    
-    //       copyArr.splice(0,1,startValue);
-    //       copyArr.splice(copyArr.length-1, 1, endValue)
-
-          return copyArr;
+  const copyArr = arr.slice();
+  for (let i = 0; i < startValue.length; i++) {
+    copyArr[i] = startValue[i];
   }
+
+  for (let i = 0; i < endValue.length; i++) {
+    copyArr[copyArr.length - 1 - i] = endValue[i];
+  }
+
+  copyArr.splice(0, startValue.length, ...startValue);
+  copyArr.splice(copyArr.length-endValue.length,endValue.length, ...endValue);
+  //       copyArr.splice(copyArr.length-1, 1, endValue)
+
+  //       copyArr.splice(0,1,startValue);
+  //       copyArr.splice(copyArr.length-1, 1, endValue)
+
+  return copyArr;
+}
     // const arr = [1,2,3,4,5];
     // const result = replaceEnds(arr,0,100);
     // console.log("expect [0,2,3,4,100]:",result )
@@ -164,10 +167,13 @@ date: string;
  export  function getAllSessions(dailyRecod:Day[]):Session[]{
 
     let allSessions:Session[]=[];
-    for(const day of dailyRecod){
+    // for(const day of dailyRecod){
+    //   allSessions = allSessions.concat(day.sessions)
+     dailyRecod.forEach(day=> {
+      allSessions=allSessions.concat(day.sessions)
+     })
 
-      allSessions = allSessions.concat(day.sessions)
-    }
+    // }
     return allSessions;
   }
 

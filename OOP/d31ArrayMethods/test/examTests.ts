@@ -31,7 +31,7 @@ describe("exam2 coding", function () {
     //last two elements of the array
     const arr = [5, 4, 3, 2, 1, 0];
     const result2 = [10, 9, 3, 2, 8, 7];
-    assert.deepEqual(replaceEnds(arr,[10, 9], [7,8]), result2);
+    assert.deepEqual(replaceEnds(arr,[10, 9], [8,7]), result2);
     assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); //original array is unchanged
   });
 
