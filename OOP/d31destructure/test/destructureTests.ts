@@ -14,16 +14,16 @@ P.S. Use Object.entries and destructuring to iterate over key/value pairs.
 */
 describe("topSalary", function() {
     it("returns top-paid person", function() {
-      const salaries1 = {
+      const salaries = {
         "John": 100,
         "Pete": 300,
         "Mary": 250
       };
-      assert.equal( topSalary(salaries1), "Pete" );
+      assert.equal( topSalary(salaries), "Pete" );
     });
 
     it("returns top-paid of salaries2", function() {
-      const salaries2 = {
+      const salaries = {
         "John": 100,
         "Pete": 300,
         "Mary": 250,
@@ -31,12 +31,12 @@ describe("topSalary", function() {
         "Alice": 400,
         "Sally": 250
       };
-      assert.equal( topSalary(salaries2), "Alice" );
+      assert.equal( topSalary(salaries), "Alice" );
     });    
   
     it("returns none for the empty object", function() {
         console.log("topsalary: ", topSalary({}) );
-      assert.strictEqual( topSalary({}), "none");
+      assert.strictEqual( topSalary({}), null);
     });
   });
 

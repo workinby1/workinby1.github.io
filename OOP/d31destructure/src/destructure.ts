@@ -10,6 +10,18 @@ type SalaryObj = { [key: string]: number };
 
 
 
+export  function topSalary(salaries:SalaryObj){
 
+    let maxSalary:number = 0;
+    let maxName:string|null = null;
+
+    for(const[name, salary] of Object.entries(salaries)){
+        if(maxSalary<salary){
+            maxSalary = salary;
+            maxName = name
+        }
+    }
+    return maxName;
+}
 
  

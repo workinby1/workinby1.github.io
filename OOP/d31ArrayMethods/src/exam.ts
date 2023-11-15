@@ -16,11 +16,16 @@
   //  });
 
 
-export  function firstLast(names:string[]){
+  type NameObject={
+    firstName: string;
+    lastName: string;
+  }
+
+export  function firstLast(names:string[]):NameObject[]{
      
-      const resultArr = names.map((fullName)=>{
-      const eachName = fullName.split(" ");
-      return {firstName:eachName[0], lastName:eachName[1]}
+      const resultArr:NameObject[] = names.map((fullName)=>{
+      const eachFullName:string[] = fullName.split(" ");
+      return {firstName:eachFullName[0], lastName:eachFullName[1]}
      })
      return resultArr;
   }
@@ -31,13 +36,14 @@ export  function firstLast(names:string[]){
   //  Use slice and splice to write TypeScript code for the replaceEnds function.  replaceEnds should be a pure function.
 export  function replaceEnds(arr:number[], startValue:number[], endValue:number[]):number[]{
   const copyArr = arr.slice();
-  for (let i = 0; i < startValue.length; i++) {
-    copyArr[i] = startValue[i];
-  }
 
-  for (let i = 0; i < endValue.length; i++) {
-    copyArr[copyArr.length - 1 - i] = endValue[i];
-  }
+  // for (let i = 0; i < startValue.length; i++) {
+  //   copyArr[i] = startValue[i];
+  // }
+
+  // for (let i = 0; i < endValue.length; i++) {
+  //   copyArr[copyArr.length - 1 - i] = endValue[i];
+  // }
 
   copyArr.splice(0, startValue.length, ...startValue);
   copyArr.splice(copyArr.length-endValue.length,endValue.length, ...endValue);
