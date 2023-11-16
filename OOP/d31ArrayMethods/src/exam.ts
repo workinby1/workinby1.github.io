@@ -150,7 +150,7 @@ date: string;
     return totalDuration
   }
   
-  let result1:number = (calculateDailyTotalDuration(day1.sessions))
+  let result1:number = (calculateDailyTotalDuration(day2.sessions))
     console.log(result1);
 
   // // Develop a function, calculateTotalDuration, using a for..of loop, to find the total workout duration across all days in the dailyRecord array. Utilize the previously defined calculateDailyTotalDuration function.
