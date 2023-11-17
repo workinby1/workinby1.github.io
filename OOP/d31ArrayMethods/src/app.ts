@@ -7,6 +7,8 @@
 // //    assert.deepEqual(firstLast(names), output);
 // //  });
 
+import { type } from "os";
+
 // function firstLast() {
 //   const names = ["Fred Smith", "Carl Lindstrom"];
 //   const resultArr = names.map((fullName) => {
@@ -106,4 +108,121 @@
 // console.log(calculateTotalDuration(dailyRecord));
 
 
-let []
+//
+// Recall the makeCounter code:
+
+// function makeCounter(): ()=>number { 
+
+//   let count = 0;   
+
+//   return function():number { count++; return count; };
+
+// }
+
+// // Rewrite makeCounter to that the callback function it returns can take an increment as an argument.  This will allow the caller to increase the count by a given number.  E.g., 
+
+// const myCount = makeCounter();
+
+// myCount(10);  // will return the count incremented by 10.
+
+// function makeCounter(): (num:number)=>number{
+//   let count = 0;
+//   return function(num:number):number{
+//     count += num;
+//   }
+// return count;
+// }
+
+function makeCounter(): (num: number) => number|string {
+  let count = 0;
+
+  return function(increment: number): number|string {
+    count += increment;
+    return (count + "your value rised by one");
+  };
+}
+
+const myCount = makeCounter();
+
+console.log(myCount(10));  // Output will be the count incremented by 10.
+console.log(myCount(5));   // Output will be the count incremented by 5 from the previous count.
+
+
+////The following objects record the season statistics for players on a basketball team.
+const player1 = {jersey: 8, stats: [ {game : 1, points: 6}, {game : 2, points : 7} ] };
+const player2 = {jersey: 12, stats: [ {game : 1, points: 16}, {game : 2, points : 14} ] };
+const player3 = {jersey: 6, stats: [ {game : 1, points: 10}, {game : 2, points : 6} ] };
+const teamStats = [player1, player2, player3];
+
+//Write a function, findHighScores, that finds the high score in the season for each player as follows:
+console.log("expect [{jersey: 8, high: 7}, {jersey: 12, high: 16}, {jersey: 6, high: 10}]: " , findHighScores(teamStats));
+
+// Be sure to use meaningful variable names and write JSdoc comments for findHighScores and any helper functions. You can write this in VS Code and then paste your solution into Sakai.
+
+type Stats = {
+  game:number;
+  points:number;
+  name: string
+}
+
+type Player = {
+  stats:Stats[]
+
+
+}
+
+function findHighScores (teamStats:Player[]):number{
+
+  let playerMaxScore = 0
+
+  teamStats.forEach(player=>{ 
+     if(playerMaxScore<player.name.points){
+      playerMaxScore = player.name.points
+    }
+
+  return playerMaxScore;
+})
+}
+
+
+
+
+function sum(x: number, y: number, ...more: number[]) {
+  //"more" is array of all extra passed params
+  let total = x + y;
+  if (more.length > 0) {
+    for (const num of more) {
+      total += num;
+    }
+  }
+  console.log("Total: " + total);
+  return total;
+}
+sum(5, 5, 5);
+sum(6, 6, 6, 6, 6);
+
+//
+Exercise
+// • write a function, multiplyEvens
+// • can be called with any number of arguments
+// • returns the product of the even arguments
+// • hint: …rest parameter
+multiplyEvens(1, 6, 3, 4, 17, 2) //→ 48
+
+//
+function multiplyEvens (...nums:number[]):number{
+  // let prod = x*y;
+
+  let product = 1;
+for(const num of nums){
+  if(num%2===0){
+    product *=num  }
+}
+return product;
+
+
+  }
+
+
+
+

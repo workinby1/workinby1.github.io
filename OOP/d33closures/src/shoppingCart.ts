@@ -39,3 +39,11 @@ getTotal():number {
 }
 return cart;
 }
+
+///
+
+//return {
+//     addTheItem:addItem;
+//     removeTheItem: removeItem;
+//     getTotal: getTotal;
+// }
