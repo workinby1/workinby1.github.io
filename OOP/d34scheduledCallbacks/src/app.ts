@@ -44,3 +44,39 @@
 // b.x = 100;
 // console.log(a) // {x:1, y:2, z:3}
 // console.log(b) // {x:100, y:2, z:3} -- clone
+
+//The rest operator (...) in JavaScript is used to collect multiple elements into a single array. It's commonly used in destructuring assignments and function calls to handle variable numbers of arguments or elements.
+
+
+
+/////////
+// a. In a destructuring assignment:
+
+// Destructuring assignment with rest operator
+const numbers = [1, 2, 3, 4, 5];
+
+// Using rest operator to collect remaining elements into 'rest'
+const [first, second, ...rest] = numbers;
+
+console.log(first); // Output: 1
+console.log(second); // Output: 2
+console.log(rest); // Output: [3, 4, 5]
+
+
+// b. In a function call:
+
+
+// Function using rest operator to collect multiple arguments into an array
+
+function sum(...numbers) {
+  return numbers.reduce((acc, val) => acc + val, 0);
+}
+
+// Function call with variable number of arguments
+const result1 = sum(1, 2, 3, 4, 5);
+console.log(result1); // Output: 15
+
+const result2 = sum(10, 20);
+console.log(result2); // Output: 30
+
+//In both cases, the rest operator (...) helps in collecting multiple elements into a single array.
