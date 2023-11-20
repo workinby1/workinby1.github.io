@@ -1210,3 +1210,46 @@ console.log(totalSalary); // Output: 6700 (Sum of all salaries in the company)
 
 
 
+///////////exam practice
+// PROGRAMMING EXERCISE
+// const bank = {    transactionsDB: [],};
+// bank.transactionsDB = [
+//     { customerId: 1, customerTransactions: [10, 50, -40] },
+//     { customerId: 2, customerTransactions: [10, 10, -10] },
+//     { customerId: 3, customerTransactions: [25, -5, 55] }];
+// //return array with all customers who had deposits greater than 20.  
+// //array should contain objects with customerId and the transaction amount for each such transaction
+// console.log("expect [{custId: 1, amount: 50}, {custId: 3, amount: 25}, {custId: 3, amount 55}] : ", 
+// findTransactionsByAmount(bank));
+
+//ans
+
+// function findTransactionsByAmount(bank) {
+//   const depositsGreaterThan20 = [];
+
+//   bank.transactionsDB.forEach((customer) => {
+//     customer.customerTransactions.forEach((transaction) => {
+//       if (transaction > 20) {
+//         depositsGreaterThan20.push({
+//           custId: customer.customerId,
+//           amount: transaction,
+//         });
+//       }
+//     });
+//   });
+
+//   return depositsGreaterThan20;
+// }
+
+// const bank = {
+//   transactionsDB: [
+//     { customerId: 1, customerTransactions: [10, 50, -40] },
+//     { customerId: 2, customerTransactions: [10, 10, -10] },
+//     { customerId: 3, customerTransactions: [25, -5, 55] },
+//   ],
+// };
+
+// console.log(
+//   "expect [{custId: 1, amount: 50}, {custId: 3, amount: 25}, {custId: 3, amount: 55}] : ",
+//   findTransactionsByAmount(bank)
+// );
